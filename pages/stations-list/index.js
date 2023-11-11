@@ -104,7 +104,7 @@ export default function Home() {
         <NavBar />
       </div>
       <div className={`${styles.tableContainer} container`}>
-        <h3 className="text-primary fw-bold mb-4">站點信息</h3>
+        <h3 className="text-primary fw-bold my-4">站點信息</h3>
         <CitySelect onCitySelect={handleCitySelect} />
         <label className="my-3 ms-1">
           <input
