@@ -1,0 +1,95 @@
+/* 針對表格的CSS */
+.tablerounded {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 28px; /* 圓角的大小 */
+  overflow: hidden; /* 確保圓角邊界之內的內容也會被裁切 */
+  margin: auto;
+  border: 0.5px solid #aeaeae;
+}
+.tablerounded tr:nth-child(odd) {
+  background-color: #ffffff; /* 奇數行設為白色 */
+}
+
+.tablerounded tr:nth-child(even) {
+  background-color: #f6f6f6; /* 偶數行設為淺灰色 */
+}
+
+.tablerounded th:first-child {
+  border-top-left-radius: 28px; /* 左上角圓角 */
+}
+
+.tablerounded th:last-child {
+  border-top-right-radius: 28px; /* 右上角圓角 */
+}
+
+.tablerounded th {
+  background-color: #b5cc22;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  width: 1192px;
+  height: 66px;
+  line-height: 24px;
+}
+
+.tablerounded tr {
+  text-align: center;
+  font-size: 16px;
+}
+
+.tablerounded td {
+  padding-block: 20px;
+}
+
+.tablerounded th,
+.tablerounded td {
+  border-bottom: 1px solid #ddd; /* 表格內部分隔線樣式 */
+}
+
+.checkboxContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // 一排四個
+  gap: 15px;
+}
+.tst {
+  accent-color: #b5cc22;
+}
+
+//分頁
+.pagination {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center; // 中心對齊分頁元素
+  li {
+    margin: 0 5px;
+    a {
+      border-radius: 5px; // 圓角邊框
+      padding: 8px 12px;
+      border: 1px solid #b5cc22; // 黃色邊框
+      background: #fff;
+      color: #b5cc22;
+      cursor: pointer;
+      &:hover {
+        background: #b5cc22;
+        color: #fff;
+      }
+    }
+  }
+  .active {
+    a {
+      background: #b5cc22; // 活動頁面的黃色背景
+      color: #fff;
+    }
+  }
+  .breakme {
+    cursor: default;
+  }
+  .previous,
+  .next {
+    a {
+      color: #b5cc22;
+    }
+  }
+}
