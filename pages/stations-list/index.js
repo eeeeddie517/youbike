@@ -171,35 +171,40 @@ export default function Home() {
           </tbody>
         </table>
 
-        <div className="mt-5 d-none d-md-block">
-          <ReactPaginate
-            previousLabel={'前一頁'}
-            nextLabel={'後一頁'}
-            breakLabel={'...'}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName={styles.pagination}
-            activeClassName={styles.active}
-            breakClassName={styles.breakme}
-          />
-        </div>
-        {/* 手機版分頁 */}
-        <div className="mt-5 d-block d-md-none">
-          <ReactPaginate
-            previousLabel={'<'}
-            nextLabel={'>'}
-            breakLabel={'...'}
-            pageCount={pageCount}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={1}
-            onPageChange={handlePageClick}
-            containerClassName={styles.pagination}
-            activeClassName={styles.active}
-            breakClassName={styles.breakme}
-          />
-        </div>
+        {pageCount > 0 && (
+          <div className="mt-5 d-none d-md-block">
+            <ReactPaginate
+              previousLabel={'前一頁'}
+              nextLabel={'後一頁'}
+              breakLabel={'...'}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={styles.pagination}
+              activeClassName={styles.active}
+              breakClassName={styles.breakme}
+            />
+          </div>
+        )}
+
+        {/* 手機版分頁，同样应用条件渲染 */}
+        {pageCount > 0 && (
+          <div className="mt-5 d-block d-md-none">
+            <ReactPaginate
+              previousLabel={'<'}
+              nextLabel={'>'}
+              breakLabel={'...'}
+              pageCount={pageCount}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={1}
+              onPageChange={handlePageClick}
+              containerClassName={styles.pagination}
+              activeClassName={styles.active}
+              breakClassName={styles.breakme}
+            />
+          </div>
+        )}
       </div>
     </>
   )
