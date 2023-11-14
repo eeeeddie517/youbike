@@ -15,3 +15,20 @@
   top: 330px;
   left: 20px;
 }
+
+.menubutton {
+  width: 10%;
+  height: 10%;
+  border: 0px;
+  background-color: #fff;
+  color: #b5cc22;
+  transition: transform 0.3s ease;
+}
+
+.active {
+  color: #b5cc22 !important;
+}
+
+.activemobile {
+  color: #677510 !important;
+}

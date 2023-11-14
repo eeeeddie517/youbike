@@ -10,6 +10,7 @@ export default function CitySelect({ onCitySelect }) {
   ]
   const [selectedCity, setSelectedCity] = useState(null)
   const [stationOptions, setStationOptions] = useState([])
+  const [selectedStation, setSelectedStation] = useState(null) // 添加這一行來跟蹤選擇的站點
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function CitySelect({ onCitySelect }) {
       fetchStationData() // 仅当选择台北市时调用 API
     } else {
       setStationOptions([]) // 清空站点选项
+      setSelectedStation(null) // 假設你有一個狀態用於跟蹤選擇的站點
     }
   }
 
@@ -58,9 +60,13 @@ export default function CitySelect({ onCitySelect }) {
         console.error('Error fetching YouBike stations:', error)
       )
   }
+  const handleStationChange = (selectedOption) => {
+    // 當站點改變時，更新 selectedStation 狀態
+    setSelectedStation(selectedOption)
+  }
   return (
     <>
-      <div className={`${styles.select} d-flex`}>
+      <div className={`${styles.select}`}>
         <div className={`${styles.citywidth} me-4`}>
           {isMounted && (
             <Select
@@ -76,6 +82,8 @@ export default function CitySelect({ onCitySelect }) {
         <div className={`${styles.areawidth}`}>
           <Select
             options={stationOptions}
+            value={selectedStation}
+            onChange={handleStationChange} // 當站點選擇改變時調用
             isClearable
             isSearchable
             placeholder="搜尋站點"

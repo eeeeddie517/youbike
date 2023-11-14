@@ -1,10 +1,13 @@
 .select {
-  //   color: #b5cc22;
   color: black;
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0.1px;
   font-family: 'Noto Sans TC', sans-serif;
+}
+.select {
+  display: flex;
+  gap: 20px;
 }
 
 .citywidth {
@@ -13,3 +16,51 @@
 .areawidth {
   width: 300px;
 }
+
+@media (max-width: 767px) {
+  .citywidth,
+  .areawidth {
+    width: 100%; /* 或設定一個固定的寬度，如360px */
+    margin: 0 auto; /* 加上這行實現水平置中 */
+  }
+
+  .select {
+    flex-direction: column;
+    justify-content: center; /* 確保水平置中 */
+    align-items: center; /* 確保垂直置中 */
+  }
+}
+
+// .citywidth {
+//   width: 245px;
+// }
+// @media (max-width: 767px) {
+//   .citywidth {
+//     width: 360px;
+//   }
+// }
+
+// .areawidth {
+//   width: 300px;
+// }
+// @media (max-width: 767px) {
+//   .areawidth {
+//     width: 360px;
+//   }
+// }
+
+// //排版
+// .select {
+//   display: flex;
+//   gap: 20px; /* 或者根據實際情況調整間距 */
+// }
+
+// /* 媒體查詢：在較小的螢幕寬度時改變佈局 */
+// @media (max-width: 768px) {
+//   .select {
+//     display: flex;
+//     justify-content: center; /* 新增這行確保子元素在容器中置中 */
+//     align-items: center;
+//     flex-direction: column;
+//   }
+// }

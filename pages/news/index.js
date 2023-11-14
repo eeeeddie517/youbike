@@ -1,9 +1,9 @@
 import NavBar from '@/components/navbar'
-export default function Home() {
+export default function News() {
   return (
     <>
       <NavBar />
-      <div className="container">首頁</div>
+      <div className="container">最新消息</div>
     </>
   )
 }

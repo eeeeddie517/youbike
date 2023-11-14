@@ -1,9 +1,9 @@
 import NavBar from '@/components/navbar'
-export default function Home() {
+export default function Activity() {
   return (
     <>
       <NavBar />
-      <div className="container">首頁</div>
+      <div className="container">活動專區</div>
     </>
   )
 }

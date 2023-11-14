@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import styles from '@/styles/table.module.scss'
+import styles from '@/styles/stations-list.module.scss'
 import ReactPaginate from 'react-paginate'
 import NavBar from '@/components/navbar'
 import CitySelect from '@/components/cityselect'
-import SearchBar from '@/components/searchbar'
 import Image from 'next/image'
 export default function Home() {
   const [bikeData, setBikeData] = useState([])
@@ -103,10 +102,10 @@ export default function Home() {
       <div className="">
         <NavBar />
       </div>
-      <div className={`${styles.tableContainer} container`}>
+      <div className="container">
         <h3 className="text-primary fw-bold my-4">站點信息</h3>
         <CitySelect onCitySelect={handleCitySelect} />
-        <label className="my-3 ms-1">
+        <label className="my-3 ms-4 ms-md-1">
           <input
             type="checkbox"
             checked={selectAll}
@@ -115,16 +114,16 @@ export default function Home() {
           />
           全部勾選
         </label>
-        <div className="d-flex justify-content-between">
+        <div className="d-md-flex justify-content-md-between">
           <div>
-            <div className={`${styles.checkboxContainer}`}>
+            <div className={`${styles.checkboxContainer} ms-4 ms-md-0 mb-md-3`}>
               {Object.keys(checkedAreas).map((area) => (
                 <label key={area}>
                   <input
                     type="checkbox"
                     checked={checkedAreas[area]}
                     onChange={() => handleCheckboxChange(area)}
-                    className={`${styles.tst} ms-1`}
+                    className={`${styles.tst} ms-md-1 `}
                   />
                   {area}
                 </label>
@@ -141,34 +140,38 @@ export default function Home() {
             />
           </div>
         </div>
-        <div>
-          <table className={`${styles.tablerounded}`}>
-            <thead>
-              <tr>
-                <th>縣市</th>
-                <th>區域</th>
-                <th>站點名稱</th>
-                <th>可借車輛</th>
-                <th>可還空位</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredData.map((item) => {
-                const stationName = item.sna.substring('YouBike2.0_'.length)
-                return (
-                  <tr key={item.sno}>
-                    <td>台北市</td>
-                    <td>{item.sarea}</td>
-                    <td>{stationName}</td>
-                    <td className="text-primary fw-bold">{item.sbi}</td>
-                    <td className="text-primary fw-bold">{item.bemp}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-        <div className="mt-5">
+
+        <table className={`${styles.tablerounded} ${styles.tableFixed}`}>
+          <thead>
+            <tr>
+              <th>縣市</th>
+              <th>區域</th>
+              <th>站點名稱</th>
+              <th className="d-none d-md-table-cell">可借車輛</th>
+              <th className="d-none d-md-table-cell">可還空位</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.map((item) => {
+              const stationName = item.sna.substring('YouBike2.0_'.length)
+              return (
+                <tr key={item.sno}>
+                  <td>台北市</td>
+                  <td>{item.sarea}</td>
+                  <td>{stationName}</td>
+                  <td className="text-primary fw-bold d-none d-md-table-cell">
+                    {item.sbi}
+                  </td>
+                  <td className="text-primary fw-bold d-none d-md-table-cell">
+                    {item.bemp}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+
+        <div className="mt-5 d-none d-md-block">
           <ReactPaginate
             previousLabel={'前一頁'}
             nextLabel={'後一頁'}
@@ -176,6 +179,21 @@ export default function Home() {
             pageCount={pageCount}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={styles.pagination}
+            activeClassName={styles.active}
+            breakClassName={styles.breakme}
+          />
+        </div>
+        {/* 手機版分頁 */}
+        <div className="mt-5 d-block d-md-none">
+          <ReactPaginate
+            previousLabel={'<'}
+            nextLabel={'>'}
+            breakLabel={'...'}
+            pageCount={pageCount}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={1}
             onPageChange={handlePageClick}
             containerClassName={styles.pagination}
             activeClassName={styles.active}

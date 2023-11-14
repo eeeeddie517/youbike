@@ -1,9 +1,9 @@
 import NavBar from '@/components/navbar'
-export default function Home() {
+export default function Rate() {
   return (
     <>
       <NavBar />
-      <div className="container">首頁</div>
+      <div className="container">收費方式</div>
     </>
   )
 }

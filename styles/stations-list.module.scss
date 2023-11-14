@@ -42,15 +42,57 @@
   padding-block: 20px;
 }
 
-.tablerounded th,
+.tablerounded th {
+  border-bottom: 1px solid #ddd; /* 表格內部分隔線樣式 */
+  max-width: 260px; /* 或者你需要的固定寬度 */
+  max-height: 50px; /* 或者你需要的固定高度 */
+  // overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+  padding-block: 20px; /* 或者任何你想要的內距 */
+}
+
+/* 針對小螢幕的表格單元格，我們可能需要一個更小的寬度 */
+@media (max-width: 767px) {
+  .tablerounded th {
+    max-width: 120px; /* 小螢幕適合的寬度 */
+    font-size: 16px;
+    padding-right: 10px;
+  }
+}
+
 .tablerounded td {
   border-bottom: 1px solid #ddd; /* 表格內部分隔線樣式 */
+  max-width: 260px; /* 或者你需要的固定寬度 */
+  max-height: 50px; /* 或者你需要的固定高度 */
+  // overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+  padding-block: 20px; /* 或者任何你想要的內距 */
+}
+
+/* 針對小螢幕的表格單元格，我們可能需要一個更小的寬度 */
+@media (max-width: 767px) {
+  .tablerounded td {
+    max-width: 120px; /* 小螢幕適合的寬度 */
+    font-size: 14px;
+    padding-right: 10px;
+  }
 }
 
 .checkboxContainer {
+  /* 手機版，一排三個 */
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // 一排四個
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  // border: 1px solid #000;
+}
+
+/* 桌面版，一排四個 */
+@media (min-width: 768px) {
+  .checkboxContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 .tst {
   accent-color: #b5cc22;
