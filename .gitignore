@@ -36,8 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 # misc
-package-lock.json
-yarn.lock
 /.temp/
 /.html/
 pages/only-test-dev/
