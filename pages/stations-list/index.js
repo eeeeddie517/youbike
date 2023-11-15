@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from '@/styles/stations-list.module.scss'
 import ReactPaginate from 'react-paginate'
 import NavBar from '@/components/navbar'
@@ -8,21 +8,21 @@ export default function Home() {
   const [bikeData, setBikeData] = useState([])
   const [filteredData, setFilteredData] = useState([])
   const [checkedAreas, setCheckedAreas] = useState({})
-  const [selectAll, setSelectAll] = useState(true) // 新增狀態用於控制全選
+  const [selectAll, setSelectAll] = useState(true) // 全選
 
   // 添加分頁狀態
   const [pageCount, setPageCount] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
-  const itemsPerPage = 10 // 每頁顯示的數量，可以根據需要調整
+  const itemsPerPage = 10
 
   const handleCitySelect = (city) => {
     if (city === '台北市') {
-      fetchBikeData() // 只有在选择台北市时调用 API
+      fetchBikeData()
     } else {
-      setBikeData([]) // 清空原始数据
-      setFilteredData([]) // 清空过滤后的数据
-      setPageCount(0) // 重置分页计数
-      setCheckedAreas({}) // 重置区域 Checkbox
+      setBikeData([])
+      setFilteredData([])
+      setPageCount(0)
+      setCheckedAreas({})
     }
   }
 
@@ -170,7 +170,7 @@ export default function Home() {
             })}
           </tbody>
         </table>
-
+        {/* 桌機版分頁 */}
         {pageCount > 0 && (
           <div className="mt-5 d-none d-md-block">
             <ReactPaginate
@@ -188,7 +188,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* 手機版分頁，同样应用条件渲染 */}
+        {/* 手機版分頁 */}
         {pageCount > 0 && (
           <div className="mt-5 d-block d-md-none">
             <ReactPaginate

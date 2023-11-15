@@ -20,13 +20,13 @@
 @media (max-width: 767px) {
   .citywidth,
   .areawidth {
-    width: 100%; /* 或設定一個固定的寬度，如360px */
-    margin: 0 auto; /* 加上這行實現水平置中 */
+    width: 100%;
+    margin: 0 auto;
   }
 
   .select {
     flex-direction: column;
-    justify-content: center; /* 確保水平置中 */
-    align-items: center; /* 確保垂直置中 */
+    justify-content: center;
+    align-items: center;
   }
 }

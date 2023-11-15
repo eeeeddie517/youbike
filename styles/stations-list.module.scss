@@ -1,26 +1,25 @@
-/* 針對表格的CSS */
 .tablerounded {
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 28px; /* 圓角的大小 */
-  overflow: hidden; /* 確保圓角邊界之內的內容也會被裁切 */
+  border-radius: 28px;
+  overflow: hidden;
   margin: auto;
   border: 0.5px solid #aeaeae;
 }
 .tablerounded tr:nth-child(odd) {
-  background-color: #ffffff; /* 奇數行設為白色 */
+  background-color: #ffffff;
 }
 
 .tablerounded tr:nth-child(even) {
-  background-color: #f6f6f6; /* 偶數行設為淺灰色 */
+  background-color: #f6f6f6;
 }
 
 .tablerounded th:first-child {
-  border-top-left-radius: 28px; /* 左上角圓角 */
+  border-top-left-radius: 28px;
 }
 
 .tablerounded th:last-child {
-  border-top-right-radius: 28px; /* 右上角圓角 */
+  border-top-right-radius: 28px;
 }
 
 .tablerounded th {
@@ -43,38 +42,31 @@
 }
 
 .tablerounded th {
-  border-bottom: 1px solid #ddd; /* 表格內部分隔線樣式 */
-  max-width: 260px; /* 或者你需要的固定寬度 */
-  max-height: 50px; /* 或者你需要的固定高度 */
-  // overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  max-width: 260px;
+  max-height: 50px;
   text-overflow: ellipsis;
-  // white-space: nowrap;
-  padding-block: 20px; /* 或者任何你想要的內距 */
+  padding-block: 20px;
 }
 
-/* 針對小螢幕的表格單元格，我們可能需要一個更小的寬度 */
 @media (max-width: 767px) {
   .tablerounded th {
-    max-width: 120px; /* 小螢幕適合的寬度 */
+    max-width: 120px;
     font-size: 16px;
     padding-right: 10px;
   }
 }
 
 .tablerounded td {
-  border-bottom: 1px solid #ddd; /* 表格內部分隔線樣式 */
-  max-width: 260px; /* 或者你需要的固定寬度 */
-  max-height: 50px; /* 或者你需要的固定高度 */
-  // overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  max-width: 260px;
+  max-height: 50px;
   text-overflow: ellipsis;
-  // white-space: nowrap;
-  padding-block: 20px; /* 或者任何你想要的內距 */
+  padding-block: 20px;
 }
-
-/* 針對小螢幕的表格單元格，我們可能需要一個更小的寬度 */
 @media (max-width: 767px) {
   .tablerounded td {
-    max-width: 120px; /* 小螢幕適合的寬度 */
+    max-width: 120px;
     font-size: 14px;
     padding-right: 10px;
   }
@@ -85,10 +77,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  // border: 1px solid #000;
 }
 
-/* 桌面版，一排四個 */
+/* 桌機版，一排四個 */
 @media (min-width: 768px) {
   .checkboxContainer {
     grid-template-columns: repeat(4, 1fr);
@@ -103,13 +94,13 @@
   display: flex;
   list-style-type: none;
   padding: 0;
-  justify-content: center; // 中心對齊分頁元素
+  justify-content: center;
   li {
     margin: 0 5px;
     a {
-      border-radius: 5px; // 圓角邊框
+      border-radius: 5px;
       padding: 8px 12px;
-      border: 1px solid #b5cc22; // 黃色邊框
+      border: 1px solid #b5cc22;
       background: #fff;
       color: #b5cc22;
       cursor: pointer;
@@ -121,7 +112,7 @@
   }
   .active {
     a {
-      background: #b5cc22; // 活動頁面的黃色背景
+      background: #b5cc22;
       color: #fff;
     }
   }
